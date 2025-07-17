@@ -31,8 +31,6 @@ jobs:
         
         # desktop-1.0.jar needs to be downloaded
 
-    - name: Setup desktop jar
-      run: |
         echo "${{ secrets.DESKTOP_JAR_BASE64 }}" | base64 -d > lib/desktop-1.0.jar
     
     - name: Build with Maven
