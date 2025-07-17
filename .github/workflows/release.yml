@@ -59,6 +59,29 @@ jobs:
         echo "File types:"
         file lib/*.jar
     
+    - name: Detailed JAR verification
+      run: |
+        echo "=== JAR File Analysis ==="
+        for jar in lib/*.jar; do
+          echo "--- $jar ---"
+          ls -lh "$jar"
+          file "$jar"
+          echo "Can Java read it?"
+          jar tf "$jar" | head -5 || echo "ERROR: Cannot read JAR contents"
+          echo "ZIP test:"
+          unzip -t "$jar" || echo "ERROR: JAR is corrupted"
+          echo ""
+        done
+        
+    - name: Test Maven dependency resolution
+      run: |
+        echo "Testing Maven dependency resolution..."
+        mvn dependency:resolve -X | grep -E "(jar|ERROR|WARN)" || echo "Dependency resolution completed"
+        
+    - name: Try compile with detailed output
+      run: |
+        mvn clean compile -X -e
+
     - name: Build with Maven
       run: mvn clean package
       
