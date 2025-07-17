@@ -28,17 +28,9 @@ jobs:
         
         # Download BaseMod  
         curl -L -o lib/BaseMod.jar https://github.com/daviscook477/BaseMod/releases/latest/download/BaseMod.jar
-        
-        # desktop-1.0.jar needs to be downloaded
 
-    - name: Check secret and decode
-      run: |
-        echo "Secret length: ${#DESKTOP_SECRET}"
-        echo "$DESKTOP_SECRET" | base64  -d > lib/desktop-1.0.jar
-        echo "File size: $(stat -c%s lib/desktop-1.0.jar
-        file lib/desktop-1.0.jar
-      env:
-        DESKTOP_SECRET: ${{ secrets.DESKTOP_JAR_BASE64 }}
+        # Download desktop jar
+        curl -L -o lib/BaseMod.jar https://drive.google.com/file/d/1er9WxTLN8TE-obbnzYf-bihdCoxNbuYg/view?usp=sharing
     
     - name: Build with Maven
       run: mvn clean package
