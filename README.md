@@ -1,4 +1,4 @@
-# Strike Poison Mod
+# Strike Poison Mod (The Silent)
 
 [![Latest Release](https://img.shields.io/github/v/release/rochellew/strike_green_patch_mod)](https://github.com/rochellew/strike_green_patch_mod/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/rochellew/strike_green_patch_mod/total)](https://github.com/rochellew/strike_green_patch_mod/releases)
