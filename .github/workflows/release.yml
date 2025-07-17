@@ -53,7 +53,7 @@ jobs:
         echo "Downloading BaseMod jar..."
         curl -L -o lib/BaseMod.jar https://github.com/daviscook477/BaseMod/releases/latest/download/BaseMod.jar
         
-        # Download desktop jar from your Google Drive
+        # Download desktop jar from your Dropbox
         echo "Downloading desktop jar..."
         curl -L -o lib/desktop-1.0.jar "https://www.dropbox.com/scl/fi/yrwdy5hn4mapvaucmt0mm/desktop-1.0.jar?rlkey=h986plasqivds1cs959jdcgdq&st=5ka3t6l1&dl=1"
         

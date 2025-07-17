@@ -11,7 +11,7 @@ A Slay the Spire mod that adds poison damage to the Silent's Strike card.
 Or visit the [Releases page](https://github.com/rochellew/strike_green_patch_mod/releases) for all versions.
 
 ## Features
-- Strike (Silent) now applies 2 poison (3 when upgraded)
+- Strike (Silent) now applies 1 poison (2 when upgraded)
 - Balanced gameplay integration
 
 ## Installation
