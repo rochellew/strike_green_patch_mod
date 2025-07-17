@@ -21,28 +21,38 @@ jobs:
     - name: Create lib directory
       run: mkdir -p lib
       
-    - name: Download ModTheSpire
+    - name: Download and setup dependencies
       run: |
-        echo "Downloading ModTheSpire..."
-        curl -L -v -o lib/ModTheSpire.zip https://github.com/kiooeht/ModTheSpire/releases/download/v3.6.3/ModTheSpire.zip
+        # Download ModTheSpire zip and extract
+        echo "Downloading ModTheSpire zip..."
+        curl -L -o ModTheSpire.zip https://github.com/kiooeht/ModTheSpire/releases/download/v3.6.3/ModTheSpire.zip
+        
+        # List contents first to see what's inside
+        echo "Contents of ModTheSpire.zip:"
+        unzip -l ModTheSpire.zip
+        
+        # Extract all files
         unzip ModTheSpire.zip
-        cp ModTheSpire.jar lib/
+        
+        # List extracted files
+        echo "Extracted files:"
+        ls -la
+        
+        # Find and copy the JAR file (it might not be named exactly ModTheSpire.jar)
+        find . -name "*.jar" -exec cp {} lib/ \;
+        
+        # Clean up
         rm ModTheSpire.zip
-        ls -la lib/ModTheSpire.jar
         
-    - name: Download BaseMod
-      run: |
-        echo "Downloading BaseMod..."
-        curl -L -v -o lib/BaseMod.jar https://github.com/daviscook477/BaseMod/releases/latest/download/BaseMod.jar
-        ls -la lib/BaseMod.jar
+        # Download BaseMod jar directly
+        echo "Downloading BaseMod jar..."
+        curl -L -o lib/BaseMod.jar https://github.com/daviscook477/BaseMod/releases/latest/download/BaseMod.jar
         
-    - name: Download desktop jar
-      run: |
+        # Download desktop jar from your Google Drive
         echo "Downloading desktop jar..."
-        curl -L -v -o lib/desktop-1.0.jar "https://github.com/YOURUSERNAME/YOURREPO/releases/download/deps/desktop-1.0.jar"
-        ls -la lib/desktop-1.0.jar
+        curl -L -o lib/desktop-1.0.jar "https://drive.google.com/file/d/1er9WxTLN8TE-obbnzYf-bihdCoxNbuYg/view?usp=sharing"
         
-    - name: Verify all files
+    - name: Verify all dependencies
       run: |
         echo "Contents of lib directory:"
         ls -la lib/
