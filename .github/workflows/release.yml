@@ -50,7 +50,7 @@ jobs:
         
         # Download desktop jar from your Google Drive
         echo "Downloading desktop jar..."
-        curl -L -o lib/desktop-1.0.jar "https://drive.google.com/uc?export=download&id=1er9WxTLN8TE-obbnzYf-bihdCoxNbuYg"
+        curl -L -o lib/desktop-1.0.jar "https://www.dropbox.com/scl/fi/yrwdy5hn4mapvaucmt0mm/desktop-1.0.jar?rlkey=h986plasqivds1cs959jdcgdq&st=5ka3t6l1&dl=1"
         
     - name: Verify all dependencies
       run: |
