@@ -24,7 +24,10 @@ jobs:
     - name: Download ModTheSpire
       run: |
         echo "Downloading ModTheSpire..."
-        curl -L -v -o lib/ModTheSpire.jar https://github.com/kiooeht/ModTheSpire/releases/latest/download/ModTheSpire.jar
+        curl -L -v -o lib/ModTheSpire.zip https://github.com/kiooeht/ModTheSpire/releases/download/v3.6.3/ModTheSpire.zip
+        unzip ModTheSpire.zip
+        cp ModTheSpire.jar lib/
+        rm ModTheSpire.zip
         ls -la lib/ModTheSpire.jar
         
     - name: Download BaseMod
