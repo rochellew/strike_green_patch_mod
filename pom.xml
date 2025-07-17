@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>strikemod</groupId>
+    <artifactId>SilentStrikePatchMod</artifactId>
+    <version>0.0.1</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <finalName>SilentStrikePatchMod-0.0.1</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Mod-TheSpire-Name>Silent Strike Patch Mod</Mod-TheSpire-Name>
+                            <Mod-TheSpire-Author>LazyDay Studios</Mod-TheSpire-Author>
+                            <Mod-TheSpire-Version>0.0.1</Mod-TheSpire-Version>
+                            <Mod-TheSpire-ID>silentstrikepatchmod</Mod-TheSpire-ID>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>basemod</groupId>
+            <artifactId>basemod</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/BaseMod.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>modthespire</groupId>
+            <artifactId>modthespire</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ModTheSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>desktop</groupId>
+            <artifactId>desktop</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/desktop-1.0.jar</systemPath>
+        </dependency>
+    </dependencies>
+</project>

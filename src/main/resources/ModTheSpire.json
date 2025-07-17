@@ -1,0 +1,12 @@
+{
+    "modid": "strikegreenpatchmod",
+    "name": "Silent Strike Mod",
+    "author_list": [
+        "Lazy Day Studios"
+    ],
+    "description": "Adds 1 poison to the Silent's Strike cards.",
+    "version": "0.0.1",
+    "sts_version": "12-22-2020",
+    "mts_version": "3.30.3",
+    "dependencies": []
+}
