@@ -64,29 +64,6 @@ jobs:
         echo "File types:"
         file lib/*.jar
     
-    - name: Detailed JAR verification
-      run: |
-        echo "=== JAR File Analysis ==="
-        for jar in lib/*.jar; do
-          echo "--- $jar ---"
-          ls -lh "$jar"
-          file "$jar"
-          echo "Can Java read it?"
-          jar tf "$jar" | head -5 || echo "ERROR: Cannot read JAR contents"
-          echo "ZIP test:"
-          unzip -t "$jar" || echo "ERROR: JAR is corrupted"
-          echo ""
-        done
-        
-    - name: Test Maven dependency resolution
-      run: |
-        echo "Testing Maven dependency resolution..."
-        mvn dependency:resolve -X | grep -E "(jar|ERROR|WARN)" || echo "Dependency resolution completed"
-        
-    - name: Try compile with detailed output
-      run: |
-        mvn clean compile -X -e
-
     - name: Build with Maven
       run: mvn clean package
       
@@ -101,13 +78,3 @@ jobs:
         body: |
           "Automated release of Strike Poison Mod"
         generate_release_notes: true
-
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/SilentStrikePatchMod-0.0.1.jar
-        asset_name: SilentStrikePatchMod-0.0.1.jar
-        asset_content_type: application/java-archive
