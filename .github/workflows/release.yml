@@ -21,16 +21,30 @@ jobs:
     - name: Create lib directory
       run: mkdir -p lib
       
-    - name: Download dependencies
+    - name: Download ModTheSpire
       run: |
-        # Download ModTheSpire
-        curl -L -o lib/ModTheSpire.jar https://github.com/kiooeht/ModTheSpire/releases/latest/download/ModTheSpire.jar
+        echo "Downloading ModTheSpire..."
+        curl -L -v -o lib/ModTheSpire.jar https://github.com/kiooeht/ModTheSpire/releases/latest/download/ModTheSpire.jar
+        ls -la lib/ModTheSpire.jar
         
-        # Download BaseMod  
-        curl -L -o lib/BaseMod.jar https://github.com/daviscook477/BaseMod/releases/latest/download/BaseMod.jar
-
-        # Download desktop jar
-        curl -L -o lib/BaseMod.jar https://drive.google.com/file/d/1er9WxTLN8TE-obbnzYf-bihdCoxNbuYg/view?usp=sharing
+    - name: Download BaseMod
+      run: |
+        echo "Downloading BaseMod..."
+        curl -L -v -o lib/BaseMod.jar https://github.com/daviscook477/BaseMod/releases/latest/download/BaseMod.jar
+        ls -la lib/BaseMod.jar
+        
+    - name: Download desktop jar
+      run: |
+        echo "Downloading desktop jar..."
+        curl -L -v -o lib/desktop-1.0.jar "https://github.com/YOURUSERNAME/YOURREPO/releases/download/deps/desktop-1.0.jar"
+        ls -la lib/desktop-1.0.jar
+        
+    - name: Verify all files
+      run: |
+        echo "Contents of lib directory:"
+        ls -la lib/
+        echo "File types:"
+        file lib/*.jar
     
     - name: Build with Maven
       run: mvn clean package
